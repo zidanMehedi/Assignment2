@@ -49,7 +49,7 @@
 	</form>
 </fieldset>
 
-<p><?php echo $show; ?></p>
+		<b><?php echo $show; ?></b>
 
 </body>
 </html>

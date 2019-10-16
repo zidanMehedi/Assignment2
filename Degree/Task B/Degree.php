@@ -4,7 +4,10 @@
 
 	if (isset($_REQUEST['Submit'])) 
 	{
-		$degree = $_REQUEST['option'];
+		if(isset($_REQUEST['option']))
+		{
+			$degree = $_REQUEST['option'];
+		}
 	}
 ?>
 
@@ -49,9 +52,20 @@
 		</fieldset>
 		</form>
 
-		<b><?php 
-			for ($i=0; $i < count($degree); $i++) 
-					echo "<br>".$degree[$i];
-			?></b>
+		<b>
+			<?php 
+				if(isset($_REQUEST['Submit']))
+				{
+					if(isset($_REQUEST['option']))
+					{
+						for ($i=0; $i < count($degree); $i++) 
+							echo "<br>".$degree[$i];
+					}
+					else
+						echo "Please Select at Least One";
+				}
+			?>
+				
+		</b>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <?php
 
 $gender="";
-$show = "";
+$Show = "";
 
 if(isset($_REQUEST['Submit']))
 {
-		
-			$gender = $_REQUEST['gender'];
-			$show = $gender;
-		
-	
+	if(isset($_REQUEST['gender']))
+	{
+		$gender = $_REQUEST['gender'];
+		$Show = $gender;
+	}
 }
 
 ?>
@@ -52,12 +52,12 @@ if(isset($_REQUEST['Submit']))
 		<b><?php 
 				if(isset($_REQUEST['Submit']))
 				{
-					if($gender != "")
+					if(isset($_REQUEST['gender']))
 						{
-							echo $show;
+							echo $Show;
 						}
-					else
-						echo "Please Select One";
+						else
+							echo "Select Your Gender";				
 				}
 			?></b>
 </body>

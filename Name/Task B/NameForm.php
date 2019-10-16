@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+
+	$Check = "";
+	$Show = "";
+
+	if(isset($_REQUEST['Submit']))
+	{
+		$Name = $_REQUEST['name'];
+
+		if ($Name == ""){
+			$Check = $Name;
+			$Show = "Please Enter Your Name";
+		}
+		elseif (!preg_match("/^[a-zA-Z ]*$/",$Name)) // Checks if there is any invalid charcters excluding letters and spaces
+		{
+			$Check = "";
+			$Show = "Enter A Valid Name";
+		}
+		else{
+			$Check = $Name;
+			$Show = $Name;
+		}
+	}
+?>
+
 <html>
 <head>
 	<title>Name</title>
@@ -17,7 +41,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" name="Submit">
+						<input type="submit" name="Submit" value="Submit">
 					</td>
 				</tr>
 			</table>
@@ -29,19 +53,7 @@
 		&nbsp;
 		<font size="5px">
 			<strong>
-				<?php
-					if(isset($_REQUEST['name']))
-						{
-							if($_REQUEST['name'] == "")
-								{
-									echo "Null Value";
-								}
-							else
-								{
-									echo $_REQUEST['name'];
-								}
-						}
-				?>
+				<?= $Show ?>
 			</strong>
 		</font>
 
